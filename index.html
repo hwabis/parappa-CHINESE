@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHINESE</title>
+
+    <script>
+        function chinese(event) {
+            const audio = new Audio("chinese.mp3")
+            audio.play();
+
+            var img = document.createElement("img");
+            img.src = "chinese.png";
+            img.style.position = "absolute";
+            img.style.left = (event.clientX - 294/2) + "px"; //uh
+            img.style.top = (event.clientY - 280/2) + "px";
+
+            document.getElementById("d").appendChild(img);
+        }
+
+        document.addEventListener("click", chinese);
+    </script>
+
+</head>
+
+<body>
+    <div id="d"></div>
+</body>
+
+</html>
