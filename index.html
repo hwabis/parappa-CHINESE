@@ -8,20 +8,32 @@
     <title>CHINESE</title>
 
     <script>
-        function chinese(event) {
-            const audio = new Audio("chinese.mp3")
+        function click(event) {
+            event.preventDefault()
+            var img = document.createElement("img");
+            var audio;
+            if (event.button == 0) {
+                img.src = "chinese.png";
+                img.style.left = (event.clientX - 294/2) + "px"; //uh i really shouldn't hard code
+                img.style.top = (event.clientY - 280/2) + "px";
+                audio = new Audio("chinese.mp3")
+            }
+            else { //middle button also works lol
+                img.src = "mexican.png";
+                img.style.left = (event.clientX - 353/2) + "px"; //uh i really shouldn't hard code
+                img.style.top = (event.clientY - 400/2) + "px";
+                audio = new Audio("mexican.mp3");
+            }
             audio.play();
 
-            var img = document.createElement("img");
-            img.src = "chinese.png";
             img.style.position = "absolute";
-            img.style.left = (event.clientX - 294/2) + "px"; //uh
-            img.style.top = (event.clientY - 280/2) + "px";
+
 
             document.getElementById("d").appendChild(img);
         }
 
-        document.addEventListener("click", chinese);
+        document.addEventListener("click", click);
+        document.addEventListener("contextmenu", click);
     </script>
 
 </head>
