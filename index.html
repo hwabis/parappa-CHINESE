@@ -12,17 +12,34 @@
             event.preventDefault()
             var img = document.createElement("img");
             var audio;
+            const audioType = Math.floor(Math.random() * 10);
             if (event.button == 0) {
                 img.src = "chinese.png";
                 img.style.left = (event.clientX - 294/2) + "px"; //uh i really shouldn't hard code
                 img.style.top = (event.clientY - 280/2) + "px";
-                audio = new Audio("chinese.mp3")
+                if (audioType == 0) {
+                    audio = new Audio("chinesefast.mp3")
+                }
+                else if (audioType == 1) {
+                    audio = new Audio("chineseslow.mp3");
+                }
+                else {
+                    audio = new Audio("chinese.mp3")
+                }
             }
-            else { //middle button also works lol
+            else {
                 img.src = "mexican.png";
-                img.style.left = (event.clientX - 353/2) + "px"; //uh i really shouldn't hard code
-                img.style.top = (event.clientY - 400/2) + "px";
-                audio = new Audio("mexican.mp3");
+                img.style.left = (event.clientX - 303/2) + "px"; //uh i really shouldn't hard code
+                img.style.top = (event.clientY - 200/2) + "px";
+                if (audioType == 0) {
+                    audio = new Audio("mexicanfast.mp3")
+                }
+                else if (audioType == 1) {
+                    audio = new Audio("mexicanslow.mp3");
+                }
+                else {
+                    audio = new Audio("mexican.mp3")
+                }
             }
             audio.play();
 
